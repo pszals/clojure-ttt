@@ -3,10 +3,10 @@
             [clojure-ttt.board :refer :all]))
 
 (describe "Placing a piece on the board"
-  (it "Modifies board for a given square"
+  (it "Modifies board for first square"
     (should= ["x" 2 3 4 5 6 7 8 9] (place-piece 1 "x" [1 2 3 4 5 6 7 8 9]))) 
 
-  (it "Modifies board for a given square"
+  (it "Modifies board for any square"
     (should= [1 "x" 3 4 5 6 7 8 9] (place-piece 2 "x" [1 2 3 4 5 6 7 8 9]))))
 
 (describe "Validating a move"
@@ -17,7 +17,7 @@
     (should= true (open? [1] 1))))
 
 (describe "Finding a winner"
-  (it "Checks first row for three of a kind"
+  (it "Checks first row for lack of three of a kind"
     (should= false (row-winner? [1 2 3 4 5 6 7 8 9])))
   
   (it "Returns true if three elements are all the same"
@@ -46,5 +46,9 @@
     (should= [[1 2 3] [4 5 6] [7 8 9]
               [1 4 7] [2 5 8] [3 6 9]
               [1 5 9] [3 5 7]] (winning-combos [1 2 3 4 5 6 7 8 9]))))
+
+(describe "Checking for a winner on the board"
+  (it "Returns true if there are three in a row"
+    (should= true (winner? ["x" "x" "x" 4 5 6 7 8 9]))))
 
 (run-specs)

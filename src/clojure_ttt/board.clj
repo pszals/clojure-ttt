@@ -27,4 +27,8 @@
   
   (defn winning-combos [board]
     (concat (rows board) (columns board) (diagonals board)))
+
+  (defn winner? [board]
+    (>= (count 
+      (filter #(true? %) (map three-of-a-kind? (winning-combos board)))) 1))
     
