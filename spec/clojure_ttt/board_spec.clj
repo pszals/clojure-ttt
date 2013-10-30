@@ -1,6 +1,6 @@
-(ns clojure-ttt.core-spec
+(ns clojure-ttt.board-spec
   (:require [speclj.core :refer :all]
-            [clojure-ttt.core :refer :all]))
+            [clojure-ttt.board :refer :all]))
 
 (describe "Placing a piece on the board"
   (it "Modifies board for a given square"
@@ -37,6 +37,14 @@
     (should= [[1 2 3] [4 5 6] [7 8 9]] (rows [1 2 3 4 5 6 7 8 9])))
   
   (it "Gets columns from board"
-    (should= [[1 4 7] [2 5 8] [3 6 9]] (columns [1 2 3 4 5 6 7 8 9]))))
+    (should= [[1 4 7] [2 5 8] [3 6 9]] (columns [1 2 3 4 5 6 7 8 9])))
+  
+  (it "Gets diagonals from board"
+    (should= [[1 5 9] [3 5 7]] (diagonals [1 2 3 4 5 6 7 8 9])))
+          
+  (it "Gathers all winning combinations"
+    (should= [[1 2 3] [4 5 6] [7 8 9]
+              [1 4 7] [2 5 8] [3 6 9]
+              [1 5 9] [3 5 7]] (winning-combos [1 2 3 4 5 6 7 8 9]))))
 
 (run-specs)
