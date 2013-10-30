@@ -4,7 +4,10 @@
 
 (describe "Placing a piece on the board"
   (it "Modifies board for a given square"
-    (should= ["x" 2 3 4 5 6 7 8 9] (place-piece 1 "x" [1 2 3 4 5 6 7 8 9]))))
+    (should= ["x" 2 3 4 5 6 7 8 9] (place-piece 1 "x" [1 2 3 4 5 6 7 8 9]))) 
+
+  (it "Modifies board for a given square"
+    (should= [1 "x" 3 4 5 6 7 8 9] (place-piece 2 "x" [1 2 3 4 5 6 7 8 9]))))
 
 (describe "Validating a move"
   (it "Checks if square is occupied"
