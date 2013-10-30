@@ -47,8 +47,23 @@
               [1 4 7] [2 5 8] [3 6 9]
               [1 5 9] [3 5 7]] (winning-combos [1 2 3 4 5 6 7 8 9]))))
 
-(describe "Checking for a winner on the board"
+(describe "Game-over situations"
   (it "Returns true if there are three in a row"
-    (should= true (winner? ["x" "x" "x" 4 5 6 7 8 9]))))
+    (should= true (winner? ["x" "x" "x" 4 5 6 7 8 9])))
+
+  (it "Returns false if there are not three in a row"
+    (should= false (winner? ["x" "o" "x" 4 5 6 7 8 9])))
+
+  (it "Returns true if board is full"
+    (should= true (full? ["x" "x" "x" "x" "x" "x" "x" "x" "x"])))
+
+  (it "Returns false if board is not full"
+    (should= true (full? ["x" "x" "3" "x" "x" "x" "x" "x" "x"])))
+
+  (it "Returns true if winner or full board"
+    (should= true (game-over? ["x" "x" "x" 4 5 6 7 8 9])))
+
+  (it "Returns false if no winner or no full board"
+    (should= false (game-over? ["x" "x" "3" 4 5 6 7 8 9]))))
 
 (run-specs)

@@ -30,5 +30,11 @@
 
   (defn winner? [board]
     (>= (count 
-      (filter #(true? %) (map three-of-a-kind? (winning-combos board)))) 1))
-    
+      (filter #(true? %) (map three-of-a-kind? (winning-combos board)))) 
+      1))
+  
+  (defn full? [board]
+    (= 0 (count (filter number? board))))
+
+  (defn game-over? [board]
+    (or (full? board) (winner? board)))
