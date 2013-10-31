@@ -31,4 +31,7 @@
    (apply str (flatten (interpose "\n---------\n" (board-pipes board)))))
 
   (defn validate-input [in]
-    (and (> (Integer. in) 0) (< (Integer. in) 10)))
+    (let [value (re-seq #"[1-9]" in)]
+      (if (nil? value)
+        false
+        true)))

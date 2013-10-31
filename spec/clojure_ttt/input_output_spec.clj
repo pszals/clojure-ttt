@@ -39,6 +39,9 @@
 
 (describe "Verifying input"
   (it "Returns true if input is a number between 1 and 9"
-    (should= true (validate-input "2"))))
+    (should= true (validate-input "2")))
+
+  (it "Returns false if input is a letter"
+    (should= false (validate-input "a"))))
 
 (run-specs)
