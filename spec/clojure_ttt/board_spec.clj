@@ -64,6 +64,16 @@
     (should= true (game-over? ["x" "x" "x" 4 5 6 7 8 9])))
 
   (it "Returns false if no winner or no full board"
-    (should= false (game-over? ["x" "x" "3" 4 5 6 7 8 9]))))
+    (should= false (game-over? ["x" "x" "3" 4 5 6 7 8 9])))
+
+  (it "Returns winning piece if three in a row"
+    (should= "x" (winning-piece ["x" "x" "x" 4 5 6 7 8 9]))))
+
+(describe "Knowing which piece is to play"
+  (it "Returns 'x' when board is empty"
+    (should= "x" (piece-to-play [1 2 3 4 5 6 7 8 9])))
+
+  (it "Returns 'o' when board has one space taken"
+    (should= "o" (piece-to-play [1 2 3 4 5 "x" 7 8 9]))))
 
 (run-specs)
