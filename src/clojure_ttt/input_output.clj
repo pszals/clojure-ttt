@@ -29,3 +29,6 @@
 
   (defn new-lines [board]
    (apply str (flatten (interpose "\n---------\n" (board-pipes board)))))
+
+  (defn validate-input [in]
+    (and (> (Integer. in) 0) (< (Integer. in) 10)))

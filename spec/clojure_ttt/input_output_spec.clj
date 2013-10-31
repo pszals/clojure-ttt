@@ -37,4 +37,8 @@
     (should= "1 | 2 | 3\n---------\n4 | 5 | 6\n---------\n7 | 8 | 9" 
       (new-lines [1 2 3 4 5 6 7 8 9]))))
 
+(describe "Verifying input"
+  (it "Returns true if input is a number between 1 and 9"
+    (should= true (validate-input "2"))))
+
 (run-specs)
