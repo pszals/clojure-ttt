@@ -67,7 +67,10 @@
     (should= false (game-over? ["x" "x" "3" 4 5 6 7 8 9])))
 
   (it "Returns winning piece if three in a row"
-    (should= "x" (winning-piece ["x" "x" "x" 4 5 6 7 8 9]))))
+    (should= "x" (winning-piece ["x" "x" "x" 4 5 6 7 8 9])))
+
+  (it "Returns something if not three in a row"
+    (should= nil (winning-piece ["x" "x" 3 4 5 6 7 8 9]))))
 
 (describe "Knowing which piece is to play"
   (it "Returns 'x' when board is empty"

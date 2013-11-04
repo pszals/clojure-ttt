@@ -7,14 +7,17 @@
     (should= "It's player x's turn" (prompt-move "x")))
 
   (it "Complains about bad input"
-    (should= "Please enter a number between 1 and 9" (invalid))))
+    (should= "Please enter a number between 1 and 9" (instructions))))
 
 (describe "End of game messages"
   (it "Tells who won"
     (should= "Player x wins!" (game-won-by "x")))
 
   (it "Announces a tie"
-    (should= "Tie game!" (tie-game))))
+    (should= "Tie game!" (tie-game)))
+
+  (it "Announces correct game over message from a given board"
+    (should= "Player x wins!" (game-over-message [1 2 3 4 5 6 "x" "x" "x"]))))
 
 (describe "Output to console"
   (it "Prints a message to console"
@@ -33,7 +36,7 @@
     (should= [["1 | 2 | 3"] ["4 | 5 | 6"] ["7 | 8 | 9"]] 
       (board-pipes [1 2 3 4 5 6 7 8 9])))
 
-  (it "Outputs each row on a new line"
+  (it "Returns each row on a new line"
     (should= "1 | 2 | 3\n---------\n4 | 5 | 6\n---------\n7 | 8 | 9" 
       (new-lines [1 2 3 4 5 6 7 8 9]))))
 
@@ -42,6 +45,9 @@
     (should= true (validate-input "2")))
 
   (it "Returns false if input is a letter"
-    (should= false (validate-input "a"))))
+    (should= false (validate-input "a")))
+
+  (it "Returns false if input is greater than 9"
+    (should= false (validate-input "98"))))
 
 (run-specs)
