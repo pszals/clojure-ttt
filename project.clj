@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.5.0"]]
   :profiles {:dev {:dependencies [[speclj "2.5.0"]]}}
   :plugins [[speclj "2.5.0"]]
+  :main clojure-ttt.runner
   :test-paths ["spec/"])
