@@ -1,6 +1,7 @@
 (ns clojure-ttt.players
   (:require [clojure-ttt.board :refer :all]
-            [clojure-ttt.input-output :refer :all]))
+            [clojure-ttt.input-output :refer :all]
+            [clojure-ttt.ai :refer :all]))
   
   (defn human-move [board]
     (loop [user-input (input (instructions))]
@@ -22,7 +23,7 @@
   (defrecord Computer [piece]
     Player
     (marker [this] (:piece this))
-    (take-turn [this board]))
+    (take-turn [this board] (place-piece (ai-move board) piece board)))
 
   (defn create-player [piece]
     (if (= piece "x")

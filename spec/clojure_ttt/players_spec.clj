@@ -1,7 +1,8 @@
 (ns clojure-ttt.players_spec
   (:require [speclj.core :refer :all]
             [clojure-ttt.players :refer :all]
-            [clojure-ttt.input-output :refer :all])
+            [clojure-ttt.input-output :refer :all]
+            [clojure-ttt.ai :refer :all])
   (:import [clojure_ttt.players Human]
            [clojure_ttt.players Computer]))
 
@@ -33,5 +34,6 @@
       (take-turn (Human. "x") [1 2 3 4 5 6 7 8 9]))))
 
   (it "Makes a move with a computer player"
+    (with-redefs [ai-move (fn [& _] 2)]
     (should= ["x" "o" 3 4 "o" 6 7 8 "x"]
-      (take-turn (Computer. "o") ["x" 2 3 4 "o" 6 7 8 "x"]))))
+      (take-turn (Computer. "o") ["x" 2 3 4 "o" 6 7 8 "x"])))))
