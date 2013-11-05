@@ -34,6 +34,6 @@
       (take-turn (Human. "x") [1 2 3 4 5 6 7 8 9]))))
 
   (it "Makes a move with a computer player"
-    (with-redefs [ai-move (fn [& _] 2)]
+    (with-redefs [ai-move (fn [& _] ["x" "o" 3 4 "o" 6 7 8 "x"])]
     (should= ["x" "o" 3 4 "o" 6 7 8 "x"]
       (take-turn (Computer. "o") ["x" 2 3 4 "o" 6 7 8 "x"])))))

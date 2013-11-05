@@ -10,6 +10,9 @@
     (should= [1 "x" 3 4 5 6 7 8 9] (place-piece 2 "x" [1 2 3 4 5 6 7 8 9]))))
 
 (describe "Validating a move"
+  (it "Creates a list of empty squares"
+    (should= [1 2 3] (list-empty-squares [1 2 3 "x"])))
+
   (it "Checks if square is occupied"
     (should= false (open? ["x"] 1)))
 
@@ -73,6 +76,10 @@
     (should= nil (winning-piece ["x" "x" 3 4 5 6 7 8 9]))))
 
 (describe "Knowing which piece is to play"
+
+  (it "Returns 'o' when it is x's turn"
+    (should= "o" (opponent-piece [1 2 3 4 5 6 7 8 9])))
+
   (it "Returns 'x' when board is empty"
     (should= "x" (piece-to-play [1 2 3 4 5 6 7 8 9])))
 

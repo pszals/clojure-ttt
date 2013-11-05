@@ -36,8 +36,11 @@
       (filter #(true? %) (map three-of-a-kind? (winning-combos board)))) 
       1))
 
+  (defn list-empty-squares [board]
+    (filter number? board))
+
   (defn empty-squares [board]
-    (count (filter number? board)))
+    (count (list-empty-squares board)))
   
   (defn full? [board]
     (= 0 (empty-squares board)))
@@ -49,6 +52,11 @@
     (if (= 0 (mod (empty-squares board) 2))
       "o"
       "x"))
+
+  (defn opponent-piece [board]
+    (if (= 0 (mod (empty-squares board) 2))
+      "x"
+      "o"))
 
   (defn three-of-a-kind? [row]
     (every? 
