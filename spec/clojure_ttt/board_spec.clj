@@ -83,6 +83,9 @@
   (it "Returns 'x' when board is empty"
     (should= "x" (piece-to-play [1 2 3 4 5 6 7 8 9])))
 
+  (it "Returns 'x' when board is mixed"
+    (should= "x" (piece-to-play ["x" "o" "x" "o" "x" "o" "x" "o" 9])))
+
   (it "Returns 'o' when board has one space taken"
     (should= "o" (piece-to-play [1 2 3 4 5 "x" 7 8 9]))))
 

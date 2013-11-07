@@ -23,7 +23,7 @@
   (defrecord Computer [piece]
     Player
     (marker [this] (:piece this))
-    (take-turn [this board] (board-with-ai-move board piece)))
+    (take-turn [this board] (board-with-ai-move board)))
 
   (defn create-player [piece]
     (if (= piece "x")
