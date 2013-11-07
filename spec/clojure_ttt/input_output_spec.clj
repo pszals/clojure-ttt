@@ -21,7 +21,7 @@
 
 (describe "Output to console"
   (it "Prints a message to console"
-    (should= "message\n" (with-out-str (output "message"))))
+    (should= "message\n---------------------\n" (with-out-str (output "message"))))
 
   (it "Prompts for input"
     (with-redefs [println (fn [& _] "Please enter input.")
