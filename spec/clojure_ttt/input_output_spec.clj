@@ -17,7 +17,8 @@
     (should= "Tie game!" (tie-game)))
 
   (it "Announces correct game over message from a given board"
-    (should= "Player x wins!" (game-over-message [1 2 3 4 5 6 "x" "x" "x"]))))
+    (with-redefs [println (fn [& _] "Player x wins!")]
+    (should= "Player x wins!" (game-over-message [1 2 3 4 5 6 "x" "x" "x"])))))
 
 (describe "Output to console"
   (it "Prints a message to console"

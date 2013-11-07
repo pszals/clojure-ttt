@@ -3,8 +3,7 @@
             [clojure.string :refer [join]]))
 
   (defn output [message]
-    (println message)
-    (println "---------------------"))
+    (println (str message "\n---------------------")))
 
   (defn input [message]
     (println message)
