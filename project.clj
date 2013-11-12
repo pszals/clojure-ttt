@@ -8,3 +8,4 @@
   :plugins [[speclj "2.5.0"]]
   :main clojure-ttt.runner
   :test-paths ["spec/"])
+

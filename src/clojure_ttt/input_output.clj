@@ -31,7 +31,7 @@
    (apply str (flatten (interpose "\n---------\n" (board-pipes board)))))
 
   (defn validate-input [in]
-    (let [value (re-seq #"^\d{1}$" in)]
+    (let [value (re-seq #"^[1-9]{1}$" in)]
       (not (nil? value))))
 
   (defn game-over-message [board]

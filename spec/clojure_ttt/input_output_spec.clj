@@ -45,6 +45,9 @@
   (it "Returns true if input is a number between 1 and 9"
     (should= true (validate-input "2")))
 
+  (it "Returns false if input is 0"
+    (should= false (validate-input "0")))
+
   (it "Returns false if input is a letter"
     (should= false (validate-input "a")))
 
