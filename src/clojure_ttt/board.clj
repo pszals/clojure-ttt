@@ -1,7 +1,7 @@
 (ns clojure-ttt.board)
 
   (defn place-piece [square piece board]
-    (assoc board (- square 1) piece))   
+    (assoc board (dec square) piece))   
  
   (defn open? [board square]
     (number? (nth board (- square 1))))
