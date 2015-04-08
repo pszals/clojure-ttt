@@ -36,8 +36,8 @@
 
   (it "scores a possibility for a loss as -1"
     (should= -1.0 (minimax [ "x"  2  "o"
-                                 4  "o"  6
-                                "x" "x"  "x"] false 1)))
+                              4  "o"  6
+                             "x" "x" "x"] false 1)))
   
 
   (it "Gets square of highest rated move from hash of squares and scores"

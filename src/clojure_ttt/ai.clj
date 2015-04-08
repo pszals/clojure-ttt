@@ -18,15 +18,14 @@
       (if (full? board)
         0)))
 
-  (defn minimax [board maximizing? depth]
-    (if 
-        (game-over? board)  
-        (/ (score-board board "o") depth)
-         (if maximizing? 
-           (apply min (map #(minimax % false (inc depth))
-                           (generate-one-level-deep (piece-to-play board)board)))
-           (apply max (map #(minimax % true (inc depth))
-                           (generate-one-level-deep (piece-to-play board) board))))))
+  (defn minimax [board minimizing? depth]
+    (if (game-over? board)
+      (/ (score-board board "o") depth)
+      (if minimizing?
+        (apply min (map #(minimax % (not minimizing?) (inc depth))
+                        (generate-one-level-deep (piece-to-play board) board)))
+        (apply max (map #(minimax % (not minimizing?) (inc depth))
+                        (generate-one-level-deep (piece-to-play board) board))))))
 
   (defn scores-with-moves [board]
     (let [moves (list-empty-squares board)]
