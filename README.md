@@ -1,36 +1,23 @@
 # clojure-ttt
 
-FIXME: description
+This is a command line tic tac toe game written in Clojure.
+Tests are written with the Speclj testing framework.
 
-## Installation
+## Dependencies
+Ensure you have [Leiningen](http://leiningen.org/) installed
 
-Download from http://example.com/FIXME.
+## To Play
 
-## Usage
+Run these commands:
 
-FIXME: explanation
+`git clone git@github.com:pszals/clojure-ttt.git`
 
-    $ java -jar clojure-ttt-0.1.0-standalone.jar [args]
+`cd clojure-ttt`
 
-## Options
+`lein run`
 
-FIXME: listing of options this app accepts.
+## To Test
 
-## Examples
+Within the clojure-ttt directory, run this command:
 
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+`lein spec`
